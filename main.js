@@ -96,11 +96,11 @@ const compileData = async () => {
 };
 
 // send the data to my server
-const sendData = async () => {
+const sendData = async (url) => {
   const data = await compileData();
   try {
     if (data) {
-      const response = await fetch("/api/visit", {
+      const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -114,4 +114,5 @@ const sendData = async () => {
 };
 
 // run the whole script 🎉
-sendData();
+api_url = "https://thandata.vercel.app/api/visit";
+sendData(api_url);
